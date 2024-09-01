@@ -2,14 +2,16 @@
     "version": 2,
     "builds": [
       {
-        "src": "./index.js",
-        "use": "@vercel/node"
+        "src": "public/**",
+        "use": "@vercel/static"
       }
     ],
     "routes": [
-      { "src": "/images/(.*)", "dest": "/public/images/$1" },
-      { "src": "/style.css", "dest": "/public/style.css" },
-      { "src": "/validateform.js", "dest": "/public/validateform.js" },
+      { "src": "/images/(.*)", "dest": "/images/$1" },
+      { "src": "/style.css", "dest": "/style.css" },
+      { "src": "/validateform.js", "dest": "/validateform.js" },
+      { "src": "/favicon.ico", "dest": "/favicon.ico" },
       { "src": "/(.*)", "dest": "/" }
     ]
   }
+  
