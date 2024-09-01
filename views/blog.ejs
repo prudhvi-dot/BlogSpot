@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/head') %>
+        <link rel="stylesheet" href="/style.css">
+        <style>
+            .container {
+                width: 80%;
+                color: white;
+            }
+
+            pre {
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                white-space: pre-wrap;
+                word-wrap: break-word;
+            }
+
+            h3 {
+                display: inline-block;
+            }
+
+            .comment-container {
+                width: 100%;
+                border: 1px solid rgba(180, 180, 180, 0.534);
+                border-radius: 5px;
+                padding: 5px;
+                margin-bottom: 4px;
+                display: flex;
+                background-color: rgba(52, 51, 51, 0.2);
+                -webkit-backdrop-filter: blur(10px);
+                backdrop-filter: blur(10px);
+                border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+
+            .comment-body {
+                margin-top: 3px;
+            }
+            h1{
+                font-family: "Baskervville SC", serif;
+            }
+        </style>
+</head>
+
+<body>
+    <%- include('./partials/nav') %>
+
+        <div class="container mt-3">
+            <h1>
+                <%= blog.title %>
+            </h1>
+            <img src="<%= blog.coverImageUrl %>" width="100%">
+            <pre class="mt-4"><%= blog.body %></pre>
+        </div>
+        <div class="container mt-5 mb-5">
+            <img src="<%= blog.createdBy.profileImageURL %>" width="17px">
+            <%= blog.createdBy.fullName %>
+        </div>
+
+        <% if (user) { %>
+            <div class="container">
+                <h3>Comments</h3> <span>(<%= comments.length %>)</span>
+                <form action="/blog/comment/<%= blog._id %>" method="post">
+                    <div class="mb-3">
+                        <textarea class="form-control" aria-label="With textarea" name="content"
+                            id="content"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <button class="btn btn-primary">Add Comment</button>
+                    </div>
+                </form>
+            </div>
+            <% } %>
+
+                <div class="container mt-3 mb-3">
+                    <% for(let comment of comments) { %>
+                        <div class="comment-container">
+                            <div class="comment-owner">
+                                <img src="<%= comment.createdBy.profileImageURL %>" width="17px">
+                                <b>
+                                    <%= comment.createdBy.fullName %>:
+                                </b>
+                            </div>
+                            <pre class="comment-body"> <%= comment.content %> </pre>
+                        </div>
+                        <% } %>
+                </div>
+
+                <%- include('./partials/scripts') %>
+</body>
+
+</html>

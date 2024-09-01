@@ -1,0 +1,128 @@
+
+.card-img-top {
+    height: 180px; 
+    object-fit: cover;
+}
+.navbar-brand{
+    font-family: "Space Grotesk", sans-serif;
+}
+.card{
+ background-color: transparent;
+ color: rgb(151, 151, 151);
+ border: 1px solid rgba(62, 62, 62, 0.799);;
+}
+form{
+    background-color: transparent;
+    color: white;
+    border: 1px solid rgba(62, 62, 62, 0.799);
+    padding: 20px;
+    width: 30%;
+}
+form input,textarea{
+    background-color: transparent !important;
+    outline: none;
+    border: 1px solid rgb(151, 151, 151);
+    color: rgb(202, 199, 199) !important;
+}
+input:focus{
+    outline: none;
+}
+.form-text{
+    color: rgb(173, 173, 173);
+  }
+.btn{
+ width: 100%;
+ border: 1px solid grey;
+ background-color: transparent;
+ outline: none;
+ color: rgb(151, 151, 151);
+ transition: 0.3s;
+}
+.btn:hover{
+ background-color: rgba(53, 53, 53, 0.582);
+ outline: none;
+}
+body {
+    background-image: url('/images/wp5208001-on-road-desktop-4k-wallpapers.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    margin: 0;
+    min-height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden; 
+  }
+  
+  body::before {
+    content: '';
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; 
+    background-color: rgba(0, 0, 0, 0.563);
+    z-index: -1;
+  }
+  
+  .navbar{
+    padding-inline: 10px !important;
+  }
+
+.glass-navbar {
+ background-color: rgba(52, 51, 51, 0.2);
+ -webkit-backdrop-filter: blur(10px);
+ backdrop-filter: blur(10px);
+ border-bottom: 1px solid rgba(255, 255, 255, 0.3); 
+ box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+}
+
+.navbar .nav-link, .navbar-brand, .navbar-toggler-icon {
+ color: white;
+}
+
+.navbar .nav-link:hover {
+ color: #ccc; 
+}
+
+
+.navbar .dropdown-menu {
+ background-color: rgba(0, 0, 0, 0.8);
+}
+
+.navbar .dropdown-item {
+ color: white;
+}
+
+.navbar .dropdown-item:hover {
+ background-color: #333;
+ color: white;
+}
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #2a2a2a;
+    /* border-radius: 10px; */
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: #555;
+    border-radius: 10px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #444;
+  }
+  
+  /* For input fields */
+input::placeholder {
+    color: rgb(183, 182, 182);
+}
+
+/* For textarea fields */
+textarea::placeholder {
+    color: rgb(183, 182, 182);
+}
+  

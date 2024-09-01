@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <%- include('./partials/head')  %>
+   <link rel="stylesheet" href="/style.css">
+   <style>
+    .container{
+      height: 80vh;
+    }
+    .btn{
+      margin-top: 25px;
+      width: 30%;
+    }
+    form{
+        width: 100%;
+        border: none;
+    }
+    input{
+        width: 30% !important;
+    }
+   </style>
+</head>
+<body>
+    <%- include('./partials/nav')  %>
+
+    <div class="container mt-3">
+        <form action="/blog" method="post" enctype="multipart/form-data" novalidate class="needs-validation">
+            <div class="mb-3">
+                <label for="coverImage" class="form-label">Cover Image</label>
+                <input type="file" class="form-control" id="coverImage" name="coverImage" required>
+            </div>
+            <div class="mb-3">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" class="form-control" id="title" name="title" required>
+            </div>
+            <div class="mb-3">
+                <label for="body" class="form-label">Body</label>
+                <textarea class="form-control" aria-label="With textarea" name="body" id="body" cols="10" rows="7" required></textarea>
+            </div>
+            <div class="mb-3">
+                <button class="btn">submit</button>
+            </div>
+        </form>
+    </div>
+
+    <%- include('./partials/scripts')  %>
+</body>
+</html>

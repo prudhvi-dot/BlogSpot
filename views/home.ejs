@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <%- include('./partials/head')  %>
+   <link rel="stylesheet" href="/style.css">
+   <style>
+    .logo-container {
+      width: 100%;
+      height: 50vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    h1 {
+      color: white;
+      font-size: 70px;
+      justify-content: center;
+    }
+
+    span {
+      color: white;
+      font-size: smaller;
+      font-family: "Maven Pro", sans-serif;
+      word-spacing: 5px;
+    }
+
+    #BLOG, #SPOT, #slogan {
+      opacity: 0; /* Hide initially until animation starts */
+    }
+
+    .start-animation #BLOG {
+      font-family: "Rubik", system-ui;
+      font-size: 65px;
+      font-weight: bold;
+      animation: blog-animation 1s ease-in-out forwards; /* Use forwards to maintain the final state of animation */
+    }
+
+    .start-animation #SPOT {
+      font-family: "Rubik Vinyl", system-ui;
+      font-size: 65px;
+      animation: spot-animation 1s ease-in-out forwards;
+    }
+
+    .start-animation #slogan {
+      animation: bottom-text-animation 1s ease-in-out forwards;
+    }
+
+    .container {
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .icons {
+      display: flex;
+      animation: slide-icons 15s infinite ease-in-out;
+    }
+
+    .icons i {
+      margin: 0 10px;
+      color: rgb(118, 117, 117);
+      font-size: 30px;
+    }
+
+    .accumulated-icons {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: flex;
+    }
+
+    @keyframes slide-icons {
+      0% {
+        transform: translateX(100%);
+        opacity: 0;
+      }
+      25% {
+        opacity: 1;
+      }
+      50% {
+        transform: translateX(0);
+      }
+      75% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateX(-100%);
+        opacity: 0;
+      }
+    }
+
+    .slide-container {
+      width: 500px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+
+    @keyframes blog-animation {
+      0% {
+        transform: translateX(-100%);
+        opacity: 0;
+      }
+      100% {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes spot-animation {
+      0% {
+        transform: translateX(100%);
+        opacity: 0;
+      }
+      100% {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes bottom-text-animation {
+      0% {
+        transform: translateY(100%);
+        opacity: 0;
+      }
+      100% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    h1 {
+      width: 100%;
+      display: flex;
+      text-align: center;
+    }
+  </style>
+</head>
+<body class="start-animation">
+    <%- include('./partials/nav')  %>
+    <div class="logo-container">
+      <h1><span id="BLOG">BLOG</span> <span id="SPOT">SPOT</span></h1>
+      <span id="slogan">Where Ideas Take Flight</span>
+    </div>
+
+    <div class="slide-container">
+      <div class="icons">
+        <i class="fa-solid fa-computer"></i>
+        <i class="fa-solid fa-music"></i>
+        <i class="fa-solid fa-film"></i>
+        <i class="fa-solid fa-video"></i>
+        <i class="fa-solid fa-utensils"></i>
+        <i class="fa-solid fa-baseball"></i>
+        <i class="fa-solid fa-dumbbell"></i>
+        <i class="fa-solid fa-heart-pulse"></i>
+        <i class="fa-solid fa-paint-roller"></i>
+        <i class="fa-solid fa-screwdriver-wrench"></i>
+        <i class="fa-solid fa-wheat-awn"></i>
+        <i class="fa-solid fa-shop"></i>
+        <i class="fa-solid fa-money-bill-trend-up"></i>
+        <i class="fa-solid fa-earth-oceania"></i>
+        <i class="fa-solid fa-flag-checkered"></i>
+        <i class="fa-solid fa-computer"></i>
+        <i class="fa-solid fa-music"></i>
+        <i class="fa-solid fa-film"></i>
+        <i class="fa-solid fa-video"></i>
+        <i class="fa-solid fa-utensils"></i>
+        <i class="fa-solid fa-baseball"></i>
+        <i class="fa-solid fa-dumbbell"></i>
+        <i class="fa-solid fa-heart-pulse"></i>
+        <i class="fa-solid fa-paint-roller"></i>
+        <i class="fa-solid fa-screwdriver-wrench"></i>
+        <i class="fa-solid fa-wheat-awn"></i>
+        <i class="fa-solid fa-shop"></i>
+        <i class="fa-solid fa-money-bill-trend-up"></i>
+        <i class="fa-solid fa-earth-oceania"></i>
+        <i class="fa-solid fa-flag-checkered"></i>
+      </div>
+    </div>
+   
+    <%- include('./partials/scripts')  %>
+</body>
+</html>
