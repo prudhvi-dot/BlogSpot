@@ -4,13 +4,16 @@
       {
         "src": "public/**",
         "use": "@vercel/static"
+      },
+      {
+        "src": "index.js",
+        "use": "@vercel/node"
       }
     ],
     "routes": [
       { "src": "/images/(.*)", "dest": "/images/$1" },
       { "src": "/style.css", "dest": "/style.css" },
       { "src": "/validateform.js", "dest": "/validateform.js" },
-      { "src": "/favicon.ico", "dest": "/favicon.ico" },
       { "src": "/(.*)", "dest": "/" }
     ]
   }
