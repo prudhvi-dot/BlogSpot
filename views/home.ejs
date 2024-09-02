@@ -31,16 +31,20 @@
     }
 
     .start-animation #BLOG {
-      font-family: "Rubik", system-ui;
-      font-size: 65px;
+      font-family: "Rubik", system-ui;   
       font-weight: bold;
       animation: blog-animation 1s ease-in-out forwards; /* Use forwards to maintain the final state of animation */
     }
+    #BLOG{
+      font-size: 65px;
+    }
 
     .start-animation #SPOT {
-      font-family: "Rubik Vinyl", system-ui;
-      font-size: 65px;
+      font-family: "Rubik Vinyl", system-ui; 
       animation: spot-animation 1s ease-in-out forwards;
+    }
+    #SPOT{
+      font-size: 65px;
     }
 
     .start-animation #slogan {
@@ -139,6 +143,11 @@
         width: 100%;
       }
     }
+    @media (max-width: 515px) {
+      #BLOG,#SPOT{
+        font-size: 50px;
+      }
+  }
   </style>
 </head>
 <body class="start-animation">
