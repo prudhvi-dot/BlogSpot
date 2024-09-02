@@ -43,7 +43,7 @@ input:focus{
  outline: none;
 }
 body {
-    background-image: url('/images/wp5208001-on-road-desktop-4k-wallpapers.jpg');
+    background-image: url('/images/landscape-bg.jpg');
     background-size: cover;
     background-position: center;
     position: relative;
@@ -66,6 +66,7 @@ body {
   
   .navbar{
     padding-inline: 10px !important;
+    font-family: "Poppins", sans-serif;
   }
 
 .glass-navbar {
@@ -124,5 +125,62 @@ input::placeholder {
 /* For textarea fields */
 textarea::placeholder {
     color: rgb(183, 182, 182);
+}
+.card-body{
+  display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+@media (max-width: 1200px) {
+  .signin-form{
+    width: 50%;
+  }
+  .signup-form{
+    width: 50%;
+  }
+  .card-title{
+    font-size: medium;
+  }
+}
+
+@media (max-width: 769px) {
+  .signin-form{
+    width: 70%;
+  }
+  .signup-form{
+    width: 70%;
+  }
+  .card-title{
+    font-size: large;
+  }
+  .slide-container{
+    width: 100%;
+  }
+  body{
+    background-image: url('/images/potrait-bg.jpg');
+  }
+  
+}
+@media (max-width: 515px) {
+  .card-title{
+    font-size: 11px;
+    font-weight: 700;
+  }
+}
+@media (max-width: 492px) {
+  .signin-form{
+    width: 80%;
+  }
+  .signup-form{
+    width: 80%;
+  }
+  #emailHelp{
+    font-size: x-small;
+  }
+  .blog-title{
+    font-size: larger;
+  }
+  
 }
   

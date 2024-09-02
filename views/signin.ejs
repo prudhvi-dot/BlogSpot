@@ -16,7 +16,7 @@
     <%- include('./partials/nav')  %>
 
     <div class="container mt-4 d-flex justify-content-center align-items-center">
-        <form action="/user/signin" method="POST" novalidate class="needs-validation">
+        <form action="/user/signin" method="POST" novalidate class="needs-validation signin-form">
             <% if(msg!=''){ %>
                 <div class="alert alert-danger" role="alert"><img src="/images/error.png" width="20px"> <span><%= msg %></span></div>
             <% } %>

@@ -7,19 +7,20 @@
 <body>
     <%- include('./partials/nav')  %>
     <div class="container mt-3">
-        <div class="row row-cols-4">
+        <!-- Set up the responsive grid -->
+        <div class="row row-cols-2 row-cols-md-2 row-cols-lg-4">
         <% for(let blog of blogs) { %>
-            <div class="col">
-            <div class="card m-2" style="width: 15rem;">
-                <img src="<%= blog.coverImageUrl %>" class="card-img-top">
-                <div class="card-body">
-                  <h5 class="card-title"><%= blog.title %></h5>
-                  <a href="/blog/<%= blog._id %>" class="btn">View</a>
+            <div class="col d-flex  justify-content-center">
+                <div class="card m-2" style="width: 15rem;">
+                    <img src="<%= blog.coverImageUrl %>" class="card-img-top">
+                    <div class="card-body">
+                      <h5 class="card-title"><%= blog.title %></h5>
+                      <a href="/blog/<%= blog._id %>" class="btn">View</a>
+                    </div>
                 </div>
             </div>
-        </div>
         <% } %>
-    </div> 
+        </div> 
     </div>
 
     <%- include('./partials/scripts')  %>
