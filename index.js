@@ -7,6 +7,7 @@ const cookieParser = require('cookie-parser');
 const path = require("path");
 const Blog = require('./models/blogSchema');
 const checkForAuthentication = require("./middlewares/authentication");
+const helmet = require('helmet');
 
 const app = express();
 connectDB();
@@ -14,6 +15,42 @@ connectDB();
 app.set('view engine', 'ejs');
 app.set('views', path.resolve('./views'));
 app.use(express.urlencoded({extended:true}));
+
+const scriptSrcUrls = [
+    "https://stackpath.bootstrapcdn.com/",
+    "https://kit.fontawesome.com/",
+    "https://cdnjs.cloudflare.com/",
+    "https://cdn.jsdelivr.net",
+];
+const styleSrcUrls = [
+    "https://kit-free.fontawesome.com/",
+    "https://stackpath.bootstrapcdn.com/",
+    "https://fonts.googleapis.com/",
+    "https://use.fontawesome.com/",
+    "https://cdn.jsdelivr.net",
+];
+
+const fontSrcUrls = [];
+app.use(
+    helmet.contentSecurityPolicy({
+        directives: {
+            defaultSrc: [],
+            connectSrc: ["'self'"],
+            scriptSrc: ["'unsafe-inline'", "'self'", ...scriptSrcUrls],
+            styleSrc: ["'self'", "'unsafe-inline'", ...styleSrcUrls],
+            workerSrc: ["'self'", "blob:"],
+            objectSrc: [],
+            imgSrc: [
+                "'self'",
+                "blob:",
+                "data:",
+                "https://res.cloudinary.com/dxvqusbka/",
+            ],
+            fontSrc: ["'self'", ...fontSrcUrls],
+        },
+    })
+);
+
 app.use(cookieParser());
 app.use(express.static(__dirname + "/public/"));
 app.use(checkForAuthentication('token'));
