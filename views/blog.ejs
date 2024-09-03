@@ -40,6 +40,25 @@
             h1{
                 font-family: "Baskervville SC", serif;
             }
+            .profile_image{
+                background-color: white;
+                border-radius: 50%;
+            }
+            .btn{
+                width: 30%;
+                display: block;
+                margin-left: auto;
+            }
+            form{
+                width: 100%;
+                border: none;
+                padding: 0;
+            }
+            @media (min-width: 1200px) {
+                form,.comment-container{
+                    width: 50%;
+                }
+              }
         </style>
 </head>
 
@@ -54,7 +73,7 @@
             <pre class="mt-4"><%= blog.body %></pre>
         </div>
         <div class="container mt-5 mb-5">
-            <img src="<%= blog.createdBy.profileImageURL %>" width="17px">
+            <img src="<%= blog.createdBy.profileImageURL %>" width="17px" class="profile_image">
             <%= blog.createdBy.fullName %>
         </div>
 
@@ -67,7 +86,7 @@
                             id="content"></textarea>
                     </div>
                     <div class="mb-3">
-                        <button class="btn btn-primary">Add Comment</button>
+                        <button class="btn">Add</button>
                     </div>
                 </form>
             </div>
@@ -77,7 +96,7 @@
                     <% for(let comment of comments) { %>
                         <div class="comment-container">
                             <div class="comment-owner">
-                                <img src="<%= comment.createdBy.profileImageURL %>" width="17px">
+                                <img src="<%= comment.createdBy.profileImageURL %>" width="17px" class="profile_image">
                                 <b>
                                     <%= comment.createdBy.fullName %>:
                                 </b>
