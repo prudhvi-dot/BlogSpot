@@ -28,14 +28,17 @@ const styleSrcUrls = [
     "https://fonts.googleapis.com/",
     "https://use.fontawesome.com/",
     "https://cdn.jsdelivr.net",
+    "https://ka-f.fontawesome.com/", // Add Font Awesome Kit URL here
+];
+const fontSrcUrls = [
+    "https://ka-f.fontawesome.com/", // Add Font Awesome Kit URL here
 ];
 
-const fontSrcUrls = [];
 app.use(
     helmet.contentSecurityPolicy({
         directives: {
             defaultSrc: [],
-            connectSrc: ["'self'"],
+            connectSrc: ["'self'", "https://ka-f.fontawesome.com/"], // Add Font Awesome URL here
             scriptSrc: ["'unsafe-inline'", "'self'", ...scriptSrcUrls],
             styleSrc: ["'self'", "'unsafe-inline'", ...styleSrcUrls],
             workerSrc: ["'self'", "blob:"],
@@ -50,6 +53,7 @@ app.use(
         },
     })
 );
+
 
 app.use(cookieParser());
 app.use(express.static(__dirname + "/public/"));
