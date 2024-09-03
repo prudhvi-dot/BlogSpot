@@ -9,9 +9,10 @@ const blogSchema = new Schema({
         type: String,
         required: true
     },
-    coverImageUrl: {
-        type: String,
-    },
+    coverImage: {
+            url: String,
+            fileName: String
+        },
     createdBy: {
         type: Schema.Types.ObjectId,
         ref: "User"
