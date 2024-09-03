@@ -5,7 +5,7 @@ const {validateToken} = require('../services/authentication');
 const router = Router();
 
 router.get('/signup',(req,res)=>{
-    res.render('signup',{user: req.user});
+    res.render('signup',{msg:'',user: req.user});
 })
 router.get('/signin',(req,res)=>{
     res.render('signin',{msg:'',user:req.user});
@@ -13,6 +13,10 @@ router.get('/signin',(req,res)=>{
 router.post('/signup',async (req,res)=>{
     
     const {fullName, email, password} = req.body;
+    const foundUser = await User.findOne({email});
+    if(foundUser){
+        return res.render('signup',{msg:'User already exists',user:req.user})
+    }
     await User.create({fullName, email, password});
     return res.redirect('/');
 })
